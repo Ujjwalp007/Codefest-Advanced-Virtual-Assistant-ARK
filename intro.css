@@ -1,0 +1,234 @@
+/* Fonts */
+@font-face {
+	font-family: 'Elnath';
+	src: url('elnath-webfont.woff2') format('woff2'), url('elnath-webfont.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* Elements */
+body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	background-color: #1d2038;
+	font-family: 'SF Pro Display';
+	color: white;
+	white-space: nowrap;
+	text-align: center;
+	overflow: hidden;
+}
+
+/* Classes */
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.text-chrome {
+	margin: 0;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(35deg, hsl(310, 100%, 65%), hsl(160, 100%, 65%));
+}
+
+/* Right Area (Dark Zone) */
+#dark-zone {
+	background-color: #090b10;
+	z-index: 0;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	animation: slideIntro 2s cubic-bezier(0.22, 1, 0.36, 1) 5.6s forwards;
+}
+
+#dark-container {
+	opacity: 0;
+	animation: fadeIn 2s 6.5s forwards;
+	position: absolute;
+	width: 65%;
+	height: 100%;
+}
+
+/* Introduction Box (Slide Out) */
+#intro-box {
+	background-color: #090b10;
+	animation: fadeOutPop 2s cubic-bezier(0.22, 1, 0.36, 1) 5s forwards, slideIntroText 2s cubic-bezier(0.22, 1, 0.36, 1) 5.6s forwards;
+}
+
+#intro-box h1 {
+	position: absolute;
+	font-size: 7rem;
+	margin: auto;
+}
+
+#intro-box h2 {
+	font-family: 'Elnath';
+	opacity: 0;
+	animation: fadeIn 5s 2s forwards;
+	text-shadow: 0px 0px 50px rbga(0, 0, 0, 0.3);
+	letter-spacing: 2rem;
+	font-size: 30rem;
+	margin: auto 0;
+	color: transparent;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: white;
+	margin-top: 2rem;
+}
+
+/* Ava Box (Left) Setup */
+#light-zone {
+	z-index: -1;
+	width: 35%;
+	height: 100vh;
+}
+
+#light-zone img {
+	position: relative;
+	width: 50%;
+	top: 50%;
+	opacity: 0;
+	transform: translateY(-50%);
+	animation: fadeIn 2s ease-in 6s forwards;
+	-webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+}
+
+/* Input Box (Right) Setup */
+#dark-render {
+	width: 60%;
+}
+
+#input-area {
+	width: 100%;
+	white-space: nowrap;
+}
+
+#input-area #microphone {
+	color: white;
+	font-size: 2rem;
+	margin-left: 2%;
+}
+
+.circle {
+	transform: translate(10%, -6%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 10%;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	border: 1px solid hsla(0, 0%, 100%, 0.6);
+	font-size: 48px;
+	margin-left: 0;
+	float: right;
+}
+
+#dark-render textarea {
+	background: transparent;
+	color: white;
+	border-radius: 20px;
+	font-family: 'SF Pro Display';
+	font-weight: 200;
+	font-size: 1rem;
+	padding-top: 2.5%;
+	padding-left: 2%;
+	width: 86%;
+}
+
+#dark-render #prompt-output {
+	margin-top: 10%;
+	width: 98%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeOutPop {
+	0% {
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	20% {
+		transform: scale(1.2);
+	}
+
+	100% {
+		opacity: 0;
+		transform: scale(0);
+	}
+}
+
+@keyframes slideIntro {
+	from {
+		transform: translateX(0%);
+		border-radius: 0;
+		display: inline;
+	}
+	to {
+		transform: translateX(35%);
+		border-radius: 20px;
+		display: none;
+	}
+}
+
+/* Animations */
+.sliding-text {
+	font-weight: 700;
+}
+
+.sliding-text .text-wrapper {
+	position: relative;
+	display: inline-block;
+	padding: 0.1em, 0, 0.15em, 0.05em;
+}
+
+.sliding-text .line {
+	opacity: 0;
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 3px;
+	background-color: #fff;
+	transform-origin: 0 50%;
+}
+
+.sliding-text .line1 {
+	top: 0;
+	left: 0;
+}
+
+.sliding-text .letter {
+	display: inline-block;
+	line-height: 1em;
+}
+
+/* Website Responsiveness */
+@media (max-width: 600px) {
+	#dark-zone {
+		zoom: 25%;
+	}
+}
+
+@media (min-width: 601px) and (max-width: 1300px) {
+	#dark-zone {
+		zoom: 50%;
+	}
+}
+
+@media (min-width: 1301px) {
+	#dark-zone {
+		zoom: 100%;
+	}
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+    <head>
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <link rel='stylesheet'
+            href='https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;900&Gemunu+Libre&family=Lexend+Mega&family=Poppins&family=Questrial&family=Raleway&display=swap'
+            rel='stylesheet' />
+
+        <title>Alpha</title>
+        <link rel='icon' type='image/icon type' href='https://imgur.com/a/M99m1Uz'>
+        <link rel='stylesheet' href='alpha.css'>
+        <script src='alpha.js'></script>
+    </head>
+
+    <body>
+        <button onclick="runScript()">Run Script</button>
+        <script>
+            function runScript() {
+                fetch('/input')
+                    .then(function (response) {
+                        return response.text();
+                    })
+                    .then(function (data) {
+                        console.log(data);
+                    });
+            }
+        </script>
+    </body>
+
+</html>
